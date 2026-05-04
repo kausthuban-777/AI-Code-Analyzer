@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "tsc",
-    "build": "tsc && webpack --mode production",
+    "build": "node generate-icons.js && tsc && webpack --mode production",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "vitest"
   },
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/chrome": "^0.0.260",
     "@types/node": "^20.10.6",
+    "copy-webpack-plugin": "^11.0.0",
     "typescript": "^5.3.3",
     "vitest": "^1.0.4",
     "webpack": "^5.89.0",

@@ -6,16 +6,16 @@
   "permissions": ["scripting", "activeTab", "tabs"],
   "host_permissions": ["https://github.com/*", "https://gitlab.com/*"],
   "action": {
-    "default_popup": "dist/popup/index.html",
+    "default_popup": "popup.html",
     "default_title": "AI Code Analyzer"
   },
   "background": {
-    "service_worker": "dist/background/service-worker.js"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "matches": ["https://github.com/*", "https://gitlab.com/*"],
-      "js": ["dist/content-script/content-script.js"],
+      "js": ["content-script.js"],
       "run_at": "document_end"
     }
   ],
@@ -31,7 +31,6 @@
     }
   ],
   "content_security_policy": {
-    "extension_pages": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; connect-src 'self' https://api.your-domain.com",
-    "sandbox": "sandbox allow-scripts allow-forms allow-same-origin; script-src 'self'; style-src 'unsafe-inline' 'self'"
+    "extension_pages": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; connect-src 'self' https://api.your-domain.com"
   }
 }
