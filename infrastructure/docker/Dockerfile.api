@@ -1,0 +1,59 @@
+# API Dockerfile with security best practices
+
+FROM node:20-alpine AS base
+RUN apk add --no-cache dumb-init
+
+# Dependencies stage
+FROM base AS dependencies
+WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN npm install -g pnpm && \
+    pnpm install --frozen-lockfile --prod
+
+# Build stage
+FROM base AS builder
+WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN npm install -g pnpm && \
+    pnpm install --frozen-lockfile
+
+COPY packages/api packages/api
+COPY packages/shared packages/shared
+COPY packages/sandbox packages/sandbox
+COPY packages/ai packages/ai
+COPY tsconfig.json .
+
+RUN pnpm --filter @ai-code-analyzer/api run build
+
+# Production stage
+FROM base AS production
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
+# Copy runtime dependencies
+COPY --from=dependencies --chown=nodejs:nodejs /app/node_modules ./node_modules
+
+# Copy built application
+COPY --from=builder --chown=nodejs:nodejs /app/packages/api/dist ./dist
+
+# Set environment
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Expose port
+EXPOSE 3000
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+
+# Run as non-root user
+USER nodejs
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD node -e "require('http').get('http://localhost:3000/health', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
+
+CMD ["node", "dist/server.js"]

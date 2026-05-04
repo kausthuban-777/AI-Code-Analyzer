@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.api
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      JWT_SECRET: dev-secret-key
+      DATABASE_URL: mongodb://mongo:27017/ai-code-analyzer
+    depends_on:
+      - mongo
+    networks:
+      - ai-analyzer
+
+  mongo:
+    image: mongo:7.0
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin-password
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - ai-analyzer
+
+  sandbox:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.sandbox
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - sandbox-data:/app/sandbox
+    networks:
+      - ai-analyzer
+
+volumes:
+  mongo-data:
+  sandbox-data:
+
+networks:
+  ai-analyzer:
+    driver: bridge

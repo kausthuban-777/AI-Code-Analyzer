@@ -1,0 +1,31 @@
+{
+  "name": "ai-code-analyzer",
+  "version": "0.1.0",
+  "description": "Cross-platform code analysis tool powered by AI",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm --recursive --parallel run dev",
+    "build": "pnpm --recursive run build",
+    "test": "pnpm --recursive run test",
+    "lint": "pnpm --recursive run lint",
+    "format": "prettier --write \"packages/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"packages/**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "security:audit": "pnpm audit --recursive",
+    "security:check": "pnpm security:audit && pnpm lint",
+    "clean": "pnpm --recursive exec rm -rf dist node_modules .turbo"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

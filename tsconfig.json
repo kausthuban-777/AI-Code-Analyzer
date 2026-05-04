@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "composite": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["packages/shared/src/*"],
+      "@api/*": ["packages/api/src/*"],
+      "@web/*": ["packages/web-app/src/*"],
+      "@desktop/*": ["packages/desktop/src/*"],
+      "@extension/*": ["packages/extension/src/*"],
+      "@sandbox/*": ["packages/sandbox/src/*"],
+      "@ai/*": ["packages/ai/src/*"]
+    }
+  },
+  "include": ["packages"],
+  "references": [
+    { "path": "packages/shared/tsconfig.json" },
+    { "path": "packages/api/tsconfig.json" },
+    { "path": "packages/web-app/tsconfig.json" },
+    { "path": "packages/desktop/tsconfig.json" },
+    { "path": "packages/extension/tsconfig.json" },
+    { "path": "packages/sandbox/tsconfig.json" },
+    { "path": "packages/ai/tsconfig.json" }
+  ]
+}

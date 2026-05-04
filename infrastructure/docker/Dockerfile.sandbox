@@ -1,0 +1,37 @@
+# Sandbox Dockerfile with Docker-in-Docker for secure code execution
+
+FROM docker:24-dind
+
+RUN apk add --no-cache \
+    nodejs \
+    npm \
+    python3 \
+    py3-pip \
+    java-openjdk-17 \
+    git \
+    curl \
+    bash
+
+# Create sandbox user and directories
+RUN addgroup -g 1001 -S sandbox && \
+    adduser -S sandbox -u 1001 && \
+    mkdir -p /app/sandbox && \
+    chown -R sandbox:sandbox /app/sandbox
+
+WORKDIR /app
+
+# Copy application code
+COPY --chown=sandbox:sandbox packages/sandbox ./packages/sandbox
+COPY --chown=sandbox:sandbox packages/shared ./packages/shared
+
+# Install dependencies
+RUN npm install --production
+
+USER sandbox
+
+EXPOSE 9000
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:9000/health || exit 1
+
+CMD ["node", "packages/sandbox/dist/index.js"]

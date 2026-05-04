@@ -1,0 +1,22 @@
+{
+  "name": "@ai-code-analyzer/extension",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "tsc",
+    "build": "tsc && webpack --mode production",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@ai-code-analyzer/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.260",
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.5.1"
+  }
+}

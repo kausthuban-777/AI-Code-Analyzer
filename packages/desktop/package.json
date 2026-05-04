@@ -1,0 +1,51 @@
+{
+  "name": "@ai-code-analyzer/desktop",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Desktop application for AI Code Analyzer",
+  "main": "dist/main/main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "electron .",
+    "build": "tsc && electron-builder",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@ai-code-analyzer/shared": "workspace:*",
+    "electron-squirrel-startup": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/electron-is-dev": "^1.0.2",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.9.1",
+    "electron-is-dev": "^2.0.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4"
+  },
+  "build": {
+    "appId": "com.aianalyzer.app",
+    "productName": "AI Code Analyzer",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "signingHashAlgorithms": ["sha256"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+}
