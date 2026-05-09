@@ -1,7 +1,7 @@
 import helmet from 'helmet';
 import cors from 'cors';
 import mongoSanitize from 'express-mongo-sanitize';
-import { Express } from 'express';
+import express, { Express } from 'express';
 
 export const configureSecurityHeaders = (app: Express): void => {
   // Helmet helps secure Express apps by setting HTTP response headers
@@ -52,7 +52,7 @@ export const configureSanitization = (app: Express): void => {
   app.use(
     mongoSanitize({
       replaceWith: '_',
-      onSanitize: ({ req, key }) => {
+      onSanitize: ({ key }) => {
         console.warn(`Field '${key}' was sanitized in request`);
       },
     })
@@ -61,6 +61,6 @@ export const configureSanitization = (app: Express): void => {
 
 export const configureInputValidation = (app: Express): void => {
   // Limit payload size
-  app.use('express.json', { limit: '10mb' });
-  app.use('express.urlencoded', { limit: '10mb', extended: true });
+  app.use(express.json({ limit: '10mb' }));
+  app.use(express.urlencoded({ limit: '10mb', extended: true }));
 };

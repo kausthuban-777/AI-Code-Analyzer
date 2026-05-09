@@ -1,10 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { Response, NextFunction } from 'express';
 import { extractTokenFromHeader, verifyToken } from './auth';
 import { SecurityError, AuthenticatedRequest } from './errors';
 
 export const authenticate = (
   req: AuthenticatedRequest,
-  res: Response,
+  _res: Response,
   next: NextFunction
 ): void => {
   try {
@@ -25,8 +25,8 @@ export const authenticate = (
   }
 };
 
-export const authorize = (...allowedRoles: string[]) => {
-  return (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
+export const authorize = (..._allowedRoles: string[]) => {
+  return (req: AuthenticatedRequest, _res: Response, next: NextFunction): void => {
     if (!req.userId) {
       throw new SecurityError(401, 'User not authenticated');
     }

@@ -1,8 +1,8 @@
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import bcryptjs from 'bcryptjs';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
-const JWT_EXPIRY = process.env.JWT_EXPIRY || '7d';
+const JWT_SECRET: string = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_EXPIRY: string = process.env.JWT_EXPIRY || '7d';
 
 export interface TokenPayload {
   userId: string;
@@ -13,9 +13,10 @@ export interface TokenPayload {
 }
 
 export const generateToken = (payload: Omit<TokenPayload, 'iat' | 'exp'>): string => {
-  return jwt.sign(payload, JWT_SECRET, {
-    expiresIn: JWT_EXPIRY,
-  });
+  const options: SignOptions = {
+    expiresIn: JWT_EXPIRY as any,
+  };
+  return jwt.sign(payload, JWT_SECRET, options);
 };
 
 export const verifyToken = (token: string): TokenPayload => {

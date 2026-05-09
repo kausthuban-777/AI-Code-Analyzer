@@ -8,7 +8,7 @@ export const createRateLimiter = (windowMs: number, max: number) => {
     message: 'Too many requests from this IP, please try again later.',
     standardHeaders: true,
     legacyHeaders: false,
-    skip: (req: Request) => {
+    skip: (_req: Request) => {
       return process.env.NODE_ENV !== 'production';
     },
     keyGenerator: (req: Request) => {

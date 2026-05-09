@@ -1,5 +1,5 @@
 {
-  "name": "@ai-code-analyzer/desktop",
+  "name": "ai-code-analyzer-desktop",
   "version": "0.1.0",
   "type": "module",
   "description": "Desktop application for AI Code Analyzer",
