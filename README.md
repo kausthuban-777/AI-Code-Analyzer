@@ -1,4 +1,4 @@
-# AI Code Analyzer
+<h1 align="center">AI Code Analyzer</h1>
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178c6?logo=typescript)
 ![Node.js](https://img.shields.io/badge/Node.js->=20.0.0-339933?logo=node.js)
@@ -21,18 +21,16 @@ AI Code Analyzer is an intelligent codebase analysis platform that provides comp
 
 ## Features
 
-✅ Full-project AI-driven analysis
-✅ Code quality evaluation
-✅ Security vulnerability detection
-✅ Test coverage assessment
-✅ Architecture review
-✅ Problem statement alignment validation
-✅ Multi-language support
-✅ Structured report generation (PDF, Markdown, JSON)
-✅ Sandbox execution for safety
-✅ Real-time feedback
-
----
+- ✅ Full-project AI-driven analysis
+- ✅ Code quality evaluation
+- ✅ Security vulnerability detection
+- ✅ Test coverage assessment
+- ✅ Architecture review
+- ✅ Problem statement alignment validation
+- ✅ Multi-language support
+- ✅ Structured report generation (PDF, Markdown, JSON)
+- ✅ Sandbox execution for safety
+- ✅ Real-time feedback
 
 ## Prerequisites
 
