@@ -1,10 +1,14 @@
 <h1 align="center">AI Code Analyzer</h1>
 
+<div align="center">
+
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178c6?logo=typescript)
 ![Node.js](https://img.shields.io/badge/Node.js->=20.0.0-339933?logo=node.js)
 ![React](https://img.shields.io/badge/React-18-61dafb?logo=react)
 ![Electron](https://img.shields.io/badge/Electron-27-47848f?logo=electron)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+</div>
 
 > A cross-platform AI-driven code analysis tool that evaluates your entire codebase for quality, security, test coverage, architecture, and alignment with project objectives.
 
