@@ -316,15 +316,15 @@ This starts all services in containers for local development.
 
 ## Version Roadmap
 
-| Version | Platform | Focus | Timeline | Key Features |
-|---------|----------|-------|----------|--------------|
-| **V1.0** | Web App | Core AI engine + web interface | 4-6 weeks | Full-project analysis, code quality, security scanning, test coverage, architecture review, JSON reports, sandbox execution |
-| **V1.1** | Web App | Advanced analysis + export | +6-8 weeks | Problem alignment validation, complexity analysis, accessibility (WCAG), PDF/Markdown export, analysis history |
-| **V1.2** | Web App + API | Third-party integrations | +8-10 weeks | REST API, GitHub/GitLab integration, CI/CD webhooks, batch analysis, custom configurations |
-| **V2.0** | Desktop | Native Windows app | +12-16 weeks | Electron desktop, local analysis, offline support, drag-drop loading, project management, results caching |
-| **V2.1** | Desktop | Power features | +16-20 weeks | Version comparison, custom rule templates, diff analysis, IDE-like viewer, CLI interface, keyboard shortcuts |
-| **V3.0** | Extension | Browser integration | +18-24 weeks | Chrome/Firefox extension, GitHub/GitLab inline analysis, quick scan mode, code snippet analysis, context menu |
-| **V3.1+** | All | Advanced features | Post-launch | AI-powered fixes, team collaboration, smart profiles, ML recommendations, multi-language support, IDE plugins |
+| Version | Platform | Focus | Key Features |
+|---------|----------|-------|--------------|
+| **V1.0** | Web App | Core AI engine + web interface | Full-project analysis, code quality, security scanning, test coverage, architecture review, JSON reports, sandbox execution |
+| **V1.1** | Web App | Advanced analysis + export | Problem alignment validation, complexity analysis, accessibility (WCAG), PDF/Markdown export, analysis history |
+| **V1.2** | Web App + API | Third-party integrations | REST API, GitHub/GitLab integration, CI/CD webhooks, batch analysis, custom configurations |
+| **V2.0** | Desktop | Native Windows app | Electron desktop, local analysis, offline support, drag-drop loading, project management, results caching |
+| **V2.1** | Desktop | Power features | Version comparison, custom rule templates, diff analysis, IDE-like viewer, CLI interface, keyboard shortcuts |
+| **V3.0** | Extension | Browser integration | Chrome/Firefox extension, GitHub/GitLab inline analysis, quick scan mode, code snippet analysis, context menu |
+| **V3.1+** | All | Advanced features | AI-powered fixes, team collaboration, smart profiles, ML recommendations, multi-language support, IDE plugins |
 
 ---
 
