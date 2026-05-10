@@ -316,142 +316,44 @@ This starts all services in containers for local development.
 
 ## Version Roadmap
 
-### V1.0 - Web App Foundation (Current)
-**Focus:** Core AI analysis engine + web interface
-**Timeline:** 4-6 weeks
-
-**Features:**
-- Full-project codebase upload & analysis
-- Code quality scoring with ML-powered detection
-- Security vulnerability scanning (OWASP)
-- Test coverage analysis & gaps
-- Architecture & modularity review
-- JSON report generation
-- Web dashboard with real-time progress
-- Sandbox execution environment
-
-**Implementation:**
-- AI pipeline: Code parsing → embedding → multi-dimensional analysis
-- Backend API: Node.js with modular service architecture
-- Frontend: React dashboard with analysis UI & report viewer
-- Database: Store analysis results & metadata
-- Docker sandbox: Isolated execution for code evaluation
+| Version | Platform | Focus | Timeline | Key Features |
+|---------|----------|-------|----------|--------------|
+| **V1.0** | Web App | Core AI engine + web interface | 4-6 weeks | Full-project analysis, code quality, security scanning, test coverage, architecture review, JSON reports, sandbox execution |
+| **V1.1** | Web App | Advanced analysis + export | +6-8 weeks | Problem alignment validation, complexity analysis, accessibility (WCAG), PDF/Markdown export, analysis history |
+| **V1.2** | Web App + API | Third-party integrations | +8-10 weeks | REST API, GitHub/GitLab integration, CI/CD webhooks, batch analysis, custom configurations |
+| **V2.0** | Desktop | Native Windows app | +12-16 weeks | Electron desktop, local analysis, offline support, drag-drop loading, project management, results caching |
+| **V2.1** | Desktop | Power features | +16-20 weeks | Version comparison, custom rule templates, diff analysis, IDE-like viewer, CLI interface, keyboard shortcuts |
+| **V3.0** | Extension | Browser integration | +18-24 weeks | Chrome/Firefox extension, GitHub/GitLab inline analysis, quick scan mode, code snippet analysis, context menu |
+| **V3.1+** | All | Advanced features | Post-launch | AI-powered fixes, team collaboration, smart profiles, ML recommendations, multi-language support, IDE plugins |
 
 ---
 
-### V1.1 - Web App Enhancement (6-8 weeks after V1.0)
-**Focus:** Advanced analysis features + export capabilities
+## Implementation Roadmap Details
 
-**Features:**
-- Problem statement alignment validation (differentiator)
-- Algorithm complexity analysis
-- File structure & modularity scoring
-- Accessibility (WCAG) evaluation
-- PDF & Markdown report export
-- Detailed issue breakdown with actionable fixes
-- Analysis history & trending
+### Phase 1: Web Application (V1.0 - V1.2)
+**Duration:** 8-10 weeks total
 
-**Implementation:**
-- Enhanced NLP for problem alignment detection
-- Rule-based accessibility scanner
-- Report generation engine (puppeteer for PDF)
-- Analytics dashboard for metric tracking
+| Version | Focus Area | Key Deliverables |
+|---------|-----------|------------------|
+| V1.0 | MVP | AI engine, dashboard, sandbox, reports |
+| V1.1 | Enhancement | Advanced analysis, exports, trending |
+| V1.2 | Integration | API layer, GitHub/GitLab, webhooks |
 
----
+### Phase 2: Desktop Application (V2.0 - V2.1)
+**Duration:** 4-8 weeks total | **Starts:** Week 12
 
-### V1.2 - API & Integrations (8-10 weeks after V1.0)
-**Focus:** Third-party integrations & automation
+| Version | Focus Area | Key Deliverables |
+|---------|-----------|------------------|
+| V2.0 | Core Desktop | Electron app, local analysis, file integration |
+| V2.1 | Enhancements | CLI, custom rules, advanced features |
 
-**Features:**
-- RESTful API for programmatic analysis
-- GitHub/GitLab repository integration
-- Webhook support for CI/CD pipelines
-- API authentication & rate limiting
-- Batch analysis capability
-- Custom analysis configurations
+### Phase 3: Browser Extension (V3.0 - V3.1+)
+**Duration:** 6-12 weeks | **Starts:** Week 18
 
-**Implementation:**
-- OpenAPI documentation
-- GitHub Actions integration
-- JWT-based authentication
-- Queue system for batch processing
-
----
-
-### V2.0 - Desktop App Launch (12-16 weeks after V1.0)
-**Focus:** Native desktop experience with local analysis
-
-**Features:**
-- Windows desktop application (Electron)
-- Local project analysis (offline-capable)
-- Direct file system integration
-- Drag-and-drop project loading
-- Native OS notifications
-- Project management interface
-- Analysis results caching
-
-**Implementation:**
-- Electron main/renderer architecture
-- Native file dialogs & file watching
-- Shared analysis engine with web app
-- Local storage for offline analysis
-- IPC communication for stability
-
----
-
-### V2.1 - Desktop Advanced (16-20 weeks after V1.0)
-**Focus:** Desktop-specific power features
-
-**Features:**
-- Version comparison & trending
-- Custom analysis rule templates
-- Project workspace management
-- Diff analysis (before/after)
-- IDE-like code viewer
-- Keyboard shortcuts & CLI interface
-
-**Implementation:**
-- Delta analysis engine
-- Rule DSL for customization
-- Terminal/CLI wrapper
-- Advanced syntax highlighting
-
----
-
-### V3.0 - Browser Extension (18-24 weeks after V1.0)
-**Focus:** Developer workflow integration
-
-**Features:**
-- Chrome/Firefox extension
-- GitHub/GitLab inline analysis
-- Quick scan mode (changed files only)
-- Code snippet analysis
-- Inline issue highlighting
-- One-click full project analysis
-- Context menu integration
-
-**Implementation:**
-- Extension manifest & background scripts
-- Content script injection
-- Lightweight analysis worker
-- GitHub API integration
-- WebWorker for background analysis
-
----
-
-### V3.1+ - Advanced Features (Post-Launch)
-**Future capabilities for sustained growth**
-
-- **AI-Powered Fixes:** Auto-generate code fixes for detected issues
-- **Team Collaboration:** Shared analysis, comments, rule voting
-- **Smart Profiles:** Custom analysis profiles for different project types
-- **ML Recommendations:** Learning from user feedback to improve suggestions
-- **Multi-language Support:** Go, Rust, Python, Java, C# analysis
-- **Continuous Monitoring:** Watch repositories for continuous analysis
-- **IDE Plugins:** VSCode, JetBrains integration
-- **Mobile Dashboard:** Mobile-friendly analysis viewer
-
----
+| Version | Focus Area | Key Deliverables |
+|---------|-----------|------------------|
+| V3.0 | Extension MVP | GitHub/GitLab integration, inline analysis |
+| V3.1+ | Advanced | AI fixes, collaboration, continuous monitoring |
 
 ## Contributing
 
