@@ -13,10 +13,13 @@ interface AppConfig {
   BCRYPT_ROUNDS: number;
   LOG_LEVEL: string;
   DATABASE_URL: string;
+  REDIS_URL: string;
+  OLLAMA_BASE_URL: string;
+  OLLAMA_MODEL: string;
 }
 
 const getConfig = (): AppConfig => {
-  const requiredVars = ['JWT_SECRET', 'DATABASE_URL'];
+  const requiredVars = ['JWT_SECRET', 'DATABASE_URL', 'REDIS_URL', 'OLLAMA_BASE_URL'];
 
   for (const varName of requiredVars) {
     if (!process.env[varName]) {
@@ -35,6 +38,9 @@ const getConfig = (): AppConfig => {
     BCRYPT_ROUNDS: parseInt(process.env.BCRYPT_ROUNDS || '12', 10),
     LOG_LEVEL: process.env.LOG_LEVEL || 'info',
     DATABASE_URL: process.env.DATABASE_URL || '',
+    REDIS_URL: process.env.REDIS_URL || '',
+    OLLAMA_BASE_URL: process.env.OLLAMA_BASE_URL || 'http://localhost:11434',
+    OLLAMA_MODEL: process.env.OLLAMA_MODEL || 'qwen2:7b-instruct',
   };
 };
 

@@ -17,10 +17,7 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm && \
     pnpm install --frozen-lockfile
 
-COPY packages/api packages/api
-COPY packages/shared packages/shared
-COPY packages/sandbox packages/sandbox
-COPY packages/ai packages/ai
+COPY packages packages
 COPY tsconfig.json .
 
 RUN pnpm --filter @ai-code-analyzer/api run build
